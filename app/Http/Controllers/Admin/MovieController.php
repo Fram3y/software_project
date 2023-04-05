@@ -95,9 +95,10 @@ class MovieController extends Controller
         
         $cinemas = Cinema::all();
         $screenings = Screening::all();
+        $genres = Genre::where("id", $movie->genre_id)->firstOrFail();
         
         // Route to The Show Movie Page
-        return view('admin.movies.show')->with('movie', $movie)->with('cinemas', $cinemas)->with('screenings', $screenings);
+        return view('admin.movies.show')->with('movie', $movie)->with('cinemas', $cinemas)->with('screenings', $screenings)->with('genres', $genres);
     }
 
     public function edit(Movie $movie)

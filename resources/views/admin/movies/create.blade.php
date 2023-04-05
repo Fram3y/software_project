@@ -161,7 +161,7 @@
         @enderror
 
         <div class="container my-4">
-            <button type="submit" class="btn btn-primary px-4">Add Movie</button>
+            <button type="submit" class="btn btn-secondary px-4">Add Movie</button>
         </div>
     </form>
     {{-- End of Create Form --}}

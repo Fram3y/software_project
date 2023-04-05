@@ -51,12 +51,9 @@
     {{-- Wide Movie Advert --}}
     <div>
         <img src="https://www.pixel4k.com/wp-content/uploads/2019/03/assassins-creed-3-remastered-4k_1553074463.jpg"
-            alt="" class="w-100" height="350">
+            alt="movie_advert_wide" class="w-100" height="350">
     </div>
     {{-- End of Wide Movie Advert --}}
-
-
-
 
     <div class="bg-primary">
         <div class="container">
@@ -87,7 +84,15 @@
 
                 <div class="text-light pt-3">
                     <p>Release Date: <br> {{ $movie->release_date }}</p>
-                    <p>Genres: <br> {{ $movie->genre_id }}</p>
+                    <p>Genres: <br> {{ $genres->name }}</p>
+                    <p><button type="button" class="btn btn-secondary">Update Movie</button></p>
+                    <div>
+                        <form action="{{ route('admin.movies.destroy', $movie) }}" method="POST">
+                        @method('delete')
+                        @csrf
+                        <p><button type="submit" class="btn btn-secondary" onclick="return confirm('Are you sure you wish to delete this movie?')">Delete Movie</button></p>
+                        </form>
+                    </div>
                 </div>
 
             </div>
