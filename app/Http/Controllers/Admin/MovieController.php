@@ -42,7 +42,7 @@ class MovieController extends Controller
         $genres = Genre::all();
 
         // Re-Route to Create Page
-        return view('admin.movies.create')->with('movies', $movies);
+        return view('admin.movies.create')->with('movies', $movies)->with('genres', $genres);
     }
 
     public function store(Request $request)
@@ -55,7 +55,7 @@ class MovieController extends Controller
         $request -> validate([
             'title' => 'required|max:255',
             'movie_image' => 'required',
-            'synopsis' => 'requred|max:255',
+            'synopsis' => 'required|max:255',
             'director' => 'required|max:255',
             'starring' => 'required|max:255',
             'release_date' => 'required',
@@ -74,8 +74,6 @@ class MovieController extends Controller
 
         // Create Block (Had a werid error with schema)
         $movie = new Movie;
-        $movie->user_id = Auth::id();
-        $movie->uuid = Str::uuid();
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
         $movie->director = $request->director;

@@ -48,6 +48,7 @@
     <form action="{{ route('admin.movies.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        {{-- Title --}}
         <div class="container my-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
             <input 
@@ -60,10 +61,12 @@
             >
         </div>
 
+        {{-- Title error --}}
         @error('title')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
+        {{-- Synopsis --}}
         <div class="container mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Synopsis</label>
             <textarea 
@@ -75,10 +78,12 @@
             rows="3"></textarea>
         </div>
 
+        {{-- Synopsis Error --}}
         @error('synopsis')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
+        {{-- Director Error --}}
         <div class="container my-3">
             <label for="exampleFormControlInput1" class="form-label">Director</label>
             <input 
@@ -91,10 +96,12 @@
             >
         </div>
 
+        {{-- Director Error --}}
         @error('director')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
+        {{-- Starring --}}
         <div class="container my-3">
             <label for="exampleFormControlInput1" class="form-label">Starring</label>
             <input 
@@ -107,10 +114,55 @@
             >
         </div>
 
+        {{-- Starring Error --}}
         @error('starring')
             <div class="text-danger">{{ $message }}</div>
         @enderror
 
+        {{-- Release Date --}}
+        <div class="container my-4">
+            <label for="release_date">Release Date:</label>
+            <input type="date" name="release_date">
+        </div>
+
+        {{-- Release Date Error --}}
+        @error('release_date')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+
+        {{-- Genres --}}
+        <div class="container my-4">
+            <label for="genres">Genres:</label>
+            <select name="genre_id">
+                @foreach ($genres as $genre)
+                    <option value="{{ $genre->id }}" {{ (old('genre_id') == $genre->id) ? "selected" : ""}}>
+                    {{ $genre->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- Genres Error --}}
+        @error('genres')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+
+        {{-- Movie Image --}}
+        <div class="container my-4">
+            <input 
+            class="mt-2" 
+            name="movie_image" 
+            type="file" 
+            >
+        </div>
+            
+        {{-- Movie Image Error --}}
+        @error('movie_image')
+            <div class="text-red-600 text-sm">{{ $message }}</div>
+        @enderror
+
+        <div class="container my-4">
+            <button type="submit" class="btn btn-primary px-4">Add Movie</button>
+        </div>
     </form>
     {{-- End of Create Form --}}
 
