@@ -1,0 +1,16 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+.max-carousel-height{
+    max-height: 20rem;
+}
+
+.offer-width{
+    max-width: 300px
+}
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
