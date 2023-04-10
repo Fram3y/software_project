@@ -90,10 +90,7 @@ class MovieController extends Controller
 
     public function show(Movie $movie)
     {
-        // Definition of Genres
-        // $movies = Movie::all();
-        // $movies = Movie::paginate(1);
-        
+        // Definition of Variables        
         $cinemas = Cinema::all();
         $screenings = Screening::all();
         $genres = Genre::where("id", $movie->genre_id)->firstOrFail();
@@ -169,37 +166,5 @@ class MovieController extends Controller
         return to_route('admin.movies.index');
     }
 
-    
 
-    // public function order(Request $request, Movie $movie)
-    // {
-
-    //     // User Authentication
-    //     $user = Auth::user();
-    //     $user->authorizeRoles('admin');
-
-    //     // Definition of Variables
-
-
-    //     // Order Validation
-    //     $request->validate([
-    //         'price' => 'required',
-    //         'movie_id' => 'required',
-    //         'screening_id' => 'required',
-    //         'cinema_id' => 'required',
-    //         'user_id' => 'required'
-    //     ]);
-
-    //     // Create Movie (Had a werid error with schema)
-    //     $order = new Order;
-    //     $order->price = $request->price;
-    //     $order->movie_id = $request->movie_id;
-    //     $order->screening_id = $request->screening_id;
-    //     $order->cinema_id = $request->cinema_id;
-    //     $order->user_id = $request->user_id;
-    //     $order->save();
-
-    //     // Re-Route Back to Homepage
-    //     return to_route('admin.movies.index');
-    // }
 }

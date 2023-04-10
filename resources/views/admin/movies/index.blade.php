@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-light" aria-current="page" href="{{route('admin.movies.index')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-light" aria-current="page" href="#">Films</a>
@@ -86,19 +86,9 @@
                     </a>
                 @empty
             </div>
-            <div class="carousel-item">
-                <a href="{{ route('admin.movies.show', $movie) }}">
-                    <div>
-                        <img src="{{ asset('storage/images/' . $movie->movie_image) }}" width="200" height="300"
-                            alt="movieImage">
-                        <p class="d-flex justify-content-center text-light">{{ $movie->title }}</p>
-                    </div>
-                </a>
-            </div>
             @endforelse
         </div>
     </div>
-
     {{-- End of Screening in your area --}}
 
     {{-- Advert --}}
