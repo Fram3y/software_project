@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\User\MovieController as UserMovieController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\User\OrderController as UserOrderController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/admin/movies', AdminMovieController::class)->middleware(['auth'])->names('admin.movies');
 
+Route::resource('/admin/orders', AdminOrderController::class)->middleware(['auth'])->names('admin.orders');
+
 // Route::resource('/user/movies', UserMovieController::class)->middleware(['auth'])->names('user.movies');
 
 Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -28,11 +28,11 @@
         <h1>Welcome to Presto</h1>
     </div>
     <div class="d-flex justify-content-center text-light mx-3">
-
         @guest
-            <a href="{{ route('login') }}" class="text-light">Log in</a>
-            <a href="{{ route('register') }}" class="text-light">Register</a>
-
+            <div>
+                <a href="{{ route('login') }}" class="text-light">Log in</a>
+                <a href="{{ route('register') }}" class="text-light">Register</a>
+            </div>
         </div>
         <div class="d-flex justify-content-center text-light mx-3">
 
@@ -51,17 +51,11 @@
         </form>
     @endauth
 
-
-
-
     <main>
         @yield('content')
     </main>
     {{-- End of Log in / Register / Nav Section --}}
 
-    {{-- Welcome to Presto Films Section --}}
-
-    {{-- End of Welcome to Presto Films Section --}}
 </body>
 
 </html>

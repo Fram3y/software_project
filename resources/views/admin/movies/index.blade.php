@@ -30,7 +30,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.movies.create') }}">Add Movie</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.orders.index') }}">My Orders</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
@@ -45,19 +45,16 @@
     {{-- End of Nav Bar --}}
 
     {{-- Advert Carousel --}}
-    <div id="AdvertCarousel" class="carousel slide">
+    <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://i.pinimg.com/originals/bf/82/f6/bf82f6956a32819af48c2572243e8286.jpg"
-                    class="d-block w-100 max-carousel-height" alt="advert-1">
+                <img src="https://i.imgur.com/ZLPqCjU.jpg" class="d-block w-100" height="300px" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://free4kwallpapers.com/uploads/originals/2019/11/20/bladerunner--movie-scene-wallpaper.jpg"
-                    class="d-block w-100 max-carousel-height" alt="advert-2">
+                <img src="https://i.imgur.com/QZEW1iH.jpg" class="d-block w-100" height="300px" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://wallpaper.dog/large/20493504.jpg" class="d-block w-100 max-carousel-height"
-                    alt="advert-3">
+                <img src="https://i.imgur.com/VCd6Gqz.jpg" class="d-block w-100" height="300px" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -77,7 +74,7 @@
             <div class="bg-primary">
                 <h2 class="d-flex justify-content-center text-light py-4">Screening in your area</h2>
             </div>
-    
+
             <div class="d-flex justify-content-evenly">
                 @forelse ($movies as $movie)
                     <a href="{{ route('admin.movies.show', $movie) }}">
@@ -101,13 +98,13 @@
             @endforelse
         </div>
     </div>
-    
+
     {{-- End of Screening in your area --}}
 
     {{-- Advert --}}
     <div class="pt-4">
-                <img src="https://i0.wp.com/www.blogtorwho.com/wp-content/uploads/2022/04/Doctor-Who-Daleks-Movies-Poster-Wide-scaled.jpg?fit=2560%2C1920&ssl=1"
-                    class="d-block w-100 max-carousel-height" alt="advert-1">
+        <img src="https://i.imgur.com/8hfZPol.jpg"
+            class="d-block w-100" height="300px" alt="advert-1">
     </div>
     {{-- End of Advert --}}
 

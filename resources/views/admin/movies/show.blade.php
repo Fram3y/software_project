@@ -34,7 +34,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.movies.create') }}">Add Movie</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.orders.index') }}">My Orders</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
@@ -85,7 +85,7 @@
                 <div class="text-light pt-3">
                     <p>Release Date: <br> {{ $movie->release_date }}</p>
                     <p>Genres: <br> {{ $genres->name }}</p>
-                    <p><button type="button" class="btn btn-secondary">Update Movie</button></p>
+                    <p><a href="{{ route('admin.movies.edit', $movie) }}" class="btn btn-secondary">Update Movie</a></p>
                     <div>
                         <form action="{{ route('admin.movies.destroy', $movie) }}" method="POST">
                         @method('delete')
@@ -134,6 +134,12 @@
     </div>
     {{-- End of Cinemas Near You --}}
 
+    <div class="bg-primary">
+        <div class="container d-flex justify-content-end p-0 py-4">
+            <p class="m-0"><a href="{{ route('admin.orders.create') }}" class="btn btn-secondary">Purchase Tickets</a></p>
+        </div>
+    </div>
+    
 
     {{-- Footer --}}
     <div class="bg-secondary">

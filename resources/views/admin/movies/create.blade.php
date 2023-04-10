@@ -30,7 +30,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.movies.create') }}">Add Movie</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.orders.index') }}">My Orders</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
@@ -43,6 +43,12 @@
         </div>
     </nav>
     {{-- End of Nav Bar --}}
+
+    {{-- Form Title --}}
+    <div class="container my-4">
+        <h2 class="form-label">Create New Movie</h2>
+    </div>
+    {{-- End of Form Title --}}
 
     {{-- Create Form --}}
     <form action="{{ route('admin.movies.store') }}" method="POST" enctype="multipart/form-data">

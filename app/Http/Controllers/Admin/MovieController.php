@@ -13,6 +13,7 @@ use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\Cinema;
 use App\Models\Screening;
+use App\Models\Order;
 
 class MovieController extends Controller
 {
@@ -72,7 +73,7 @@ class MovieController extends Controller
         // Pushing File With New Name to Images Folder
         $path = $movie_image->storeAs('public/images', $filename);
 
-        // Create Block (Had a werid error with schema)
+        // Create Movie (Had a werid error with schema)
         $movie = new Movie;
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
@@ -108,28 +109,28 @@ class MovieController extends Controller
         $user->authorizeRoles('admin');
 
         // Definition of Movies and Genres
-        $movies = Movie::with('id');
         $genres = Genre::all();
 
         // Route to Edit Page
-        return view('admin.movies.edit')->with('movies', $movies)->with('genres', $genres);
+        return view('admin.movies.edit')->with('movie', $movie)->with('genres', $genres);
     }
 
     public function update(Request $request, Movie $movie)
     {
-        // Definition of Genres
-        $genres = Genre::all();
-
         // Movie Update Validation
         $request->validate([
             'title' => 'required|max:255',
             'movie_image' => 'required',
-            'synopsis' => 'requred|max:255',
+            'synopsis' => 'required|max:255',
             'director' => 'required|max:255',
             'starring' => 'required|max:255',
             'release_date' => 'required',
             'genre_id' => 'required'
         ]);
+
+        // Definition of Genres
+        $genres = Genre::all();
+        // $movie = Movie::pluck('id');
 
         // Creating Variable For Movie Image And Extension
         $movie_image = $request->file('movie_image');
@@ -140,10 +141,6 @@ class MovieController extends Controller
 
         // Pushing File With New Name to Images Folder
         $path = $movie_image->storeAs('public/images', $filename);
-
-        if($movie->user_id != Auth::id()){
-            return abort(403);
-        }
 
         // Update Movie Function (Ran Into Schema Error)
         $movie->title = $request->title;
@@ -156,7 +153,7 @@ class MovieController extends Controller
         $movie->save();
 
         // Re-Route Back to Homepage
-        return to_route('admin.movies.index');
+        return to_route('admin.movies.index', $movie);
     }
 
     public function destroy(Movie $movie)
@@ -171,4 +168,38 @@ class MovieController extends Controller
         // Re-Routes Back to Homepage
         return to_route('admin.movies.index');
     }
+
+    
+
+    // public function order(Request $request, Movie $movie)
+    // {
+
+    //     // User Authentication
+    //     $user = Auth::user();
+    //     $user->authorizeRoles('admin');
+
+    //     // Definition of Variables
+
+
+    //     // Order Validation
+    //     $request->validate([
+    //         'price' => 'required',
+    //         'movie_id' => 'required',
+    //         'screening_id' => 'required',
+    //         'cinema_id' => 'required',
+    //         'user_id' => 'required'
+    //     ]);
+
+    //     // Create Movie (Had a werid error with schema)
+    //     $order = new Order;
+    //     $order->price = $request->price;
+    //     $order->movie_id = $request->movie_id;
+    //     $order->screening_id = $request->screening_id;
+    //     $order->cinema_id = $request->cinema_id;
+    //     $order->user_id = $request->user_id;
+    //     $order->save();
+
+    //     // Re-Route Back to Homepage
+    //     return to_route('admin.movies.index');
+    // }
 }

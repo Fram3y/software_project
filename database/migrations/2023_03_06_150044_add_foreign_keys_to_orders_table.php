@@ -15,10 +15,12 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cinema_id');
             $table->unsignedBigInteger('screening_id');
+            $table->unsignedBigInteger('movie_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('cinema_id')->references('id')->on('cinemas')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('screening_id')->references('id')->on('screening')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('screening_id')->references('id')->on('screenings')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('movie_id')->references('id')->on('movies')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
@@ -36,6 +38,9 @@ return new class extends Migration
 
             $table->dropForeign(['screening_id']);
             $table->dropColumn('screening_id');
+
+            $table->dropForeign(['movie_id']);
+            $table->dropColumn('movie_id');
         });
     }
 };

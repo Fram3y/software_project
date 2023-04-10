@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->decimal(6,2);
+            $table->string('tickets');
             $table->timestamps();
         });
     }
