@@ -27,12 +27,17 @@ Route::get('/dashboard', function () {
     return view('movies');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Home Controller
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.movies.index');
 
+Route::get('/home/orders', [App\Http\Controllers\HomeController::class, 'ordersIndex'])->name('home.orders.index');
+
+// Admin Controller
 Route::resource('/admin/movies', AdminMovieController::class)->middleware(['auth'])->names('admin.movies');
 
 Route::resource('/admin/orders', AdminOrderController::class)->middleware(['auth'])->names('admin.orders');
 
+// User Controller
 // Route::resource('/user/movies', UserMovieController::class)->middleware(['auth'])->names('user.movies');
 
 Auth::routes();

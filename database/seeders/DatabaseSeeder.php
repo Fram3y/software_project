@@ -11,6 +11,7 @@ use Database\Seeders\GenreSeeder;
 use Database\Seeders\ScreenSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\ScreeningSeeder;
+use Database\Seeders\OrderSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ScreenSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ScreeningSeeder::class);
+        $this->call(OrderSeeder::class);
     }
 }

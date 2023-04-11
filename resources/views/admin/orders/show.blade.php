@@ -43,4 +43,57 @@
     </div>
 </nav>
 {{-- End of Nav Bar --}}
+
+<div class="bg-primary">
+    <div class="container">
+
+        <h1 class="text-light py-4">Your Order</h1>
+
+        <h1 class="text-light py-2">{{ $movie->title }}</h1>
+        <h3 class="text-light py-2">{{ $screening->time}}</h3>
+        <h3 class="text-light py-2">{{ $cinema->name }}</h3>
+        <h3 class="text-light py-2 pb-3 m-0">Tickets : {{ $order->tickets }}</h3>
+    </div>
+
+    <div class="container">
+        <div>
+            <form action="{{ route('admin.orders.destroy', $order) }}" method="POST">
+            @method('delete')
+            @csrf
+            <p class="m-0 py-4"><button type="submit" class="btn btn-secondary" onclick="return confirm('Are you sure you wish to cancel your order?')">Cancel Order</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Footer --}}
+<div class="bg-secondary">
+    <div class="container d-flex justify-content-evenly p-0 pt-5">
+        <ul class="text-light">
+            <h5>Cookie Policy</h5>
+            <h5>Privacy and Legal</h5>
+            <h5>Corporate Responsibility</h5>
+            <h5>Professional Rizzemé</h5>
+        </ul>
+        <ul class="text-light">
+            <h5>Contact Us</h5>
+            <h5>Help</h5>
+            <h5>Accessibility</h5>
+            <h5>Allergen Information</h5>
+        </ul>
+        <ul class="text-light">
+            <h5>About Us</h5>
+            <h5>Careers</h5>
+            <h5>Corporate Events</h5>
+            <h5>Presto Scene</h5>
+        </ul>
+        <ul class="text-light">
+            <h5>iOS App</h5>
+            <h5>Android App</h5>
+            <h5>Employee Applications</h5>
+            <h5>Licensing Agreements</h5>
+        </ul>
+    </div>
+</div>
+{{-- End of Footer --}}
 @endsection

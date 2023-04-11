@@ -69,9 +69,10 @@ class OrderController extends Controller
 
         // Create Order (Had a werid error with schema)
         $order = new Order;
-        $order->tickets = $request->tickets;
-        $order->cinema_id = $request->cinema_id;
-        $order->screening_id = $request->screening_id;
+        $order->user_id = Auth::id();
+        $order->tickets = $request->input('tickets');
+        $order->cinema_id = $request->input('cinema_id');
+        $order->screening_id = $request->input('screening_id');
         $order->movie_id = $request->movie_id;
         $order->save();
 
@@ -86,7 +87,7 @@ class OrderController extends Controller
         $movie = Movie::where("id", $order->movie_id)->firstOrFail();
         
         // Route to The Show Movie Page
-        return view('admin.movies.show')->with('order', $order)->with('cinema', $cinema)->with('screening', $screening)->with('movie', $movie);
+        return view('admin.orders.show')->with('order', $order)->with('cinema', $cinema)->with('screening', $screening)->with('movie', $movie);
     }
 
     public function edit(Order $order)

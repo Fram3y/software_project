@@ -73,10 +73,10 @@
 
     {{-- Cinemas --}}
     <div class="container my-4">
-        <label class="form-label" for="movies">Cinema :</label>
-        <select name="movie_id">
+        <label class="form-label" for="cinema_id">Cinema :</label>
+        <select name="cinema_id">
             @foreach ($cinemas as $cinema)
-                <option value="{{ $cinema->id }}" {{ (old('cinema_id') == $cinema->id) ? "selected" : ""}}>
+                <option value="{{ $cinema->id }}">
                 {{ $cinema->name }}</option>
             @endforeach
         </select>
@@ -90,10 +90,10 @@
 
     {{-- Screenings --}}
     <div class="container my-4">
-        <label class="form-label" for="movies">Screenings :</label>
-        <select name="movie_id">
+        <label class="form-label" for="screening_id">Screenings :</label>
+        <select name="screening_id">
             @foreach ($screenings as $screening)
-                <option value="{{ $screening->id }}" {{ (old('screening_id') == $screening->id) ? "selected" : ""}}>
+                <option value="{{ $screening->id }}">
                 {{ $screening->time }}</option>
             @endforeach
         </select>
