@@ -22,7 +22,21 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        // User Authentication
+        $user = Auth::user();
+        $user->authorizeRoles('user');
+
+        // Definintion of Movies
+        $orders = Order::all();
+        $movies = Movie::all();
+        $genres = Genre::all();
+        $cinemas = Cinema::all();
+        $screenings = Screening::all();
+
+        $orders = Order::paginate(5);
+
+        // Route to home page
+        return view('user.orders.index')->with('orders', $orders)->with('movies', $movies)->with('genres', $genres)->with('cinemas', $cinemas)->with('screenings', $screenings);
     }
 
     /**
@@ -30,7 +44,18 @@ class OrderController extends Controller
      */
     public function create()
     {
-        
+       // User Authentication
+       $user = Auth::user();
+       $user->authorizeRoles('user');
+
+       // Definition of Movies And Genres
+       $movies = Movie::all();
+       $genres = Genre::all();
+       $cinemas = Cinema::all();
+       $screenings = Screening::all();
+
+       // Re-Route to Create Page
+       return view('user.orders.create')->with('movies', $movies)->with('genres', $genres)->with('cinemas', $cinemas)->with('screenings', $screenings); 
     }
 
     /**
@@ -38,7 +63,29 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // User Authentication
+        $user = Auth::user();
+        $user->authorizeRoles('user');
+
+        // Movie Validation
+        $request -> validate([
+            'tickets' => 'required|max:2',
+            'cinema_id' => 'required',
+            'screening_id' => 'required',
+            'movie_id' => 'required'
+        ]);
+
+        // Create Order (Had a werid error with schema)
+        $order = new Order;
+        $order->user_id = Auth::id();
+        $order->tickets = $request->input('tickets');
+        $order->cinema_id = $request->input('cinema_id');
+        $order->screening_id = $request->input('screening_id');
+        $order->movie_id = $request->movie_id;
+        $order->save();
+
+        // Re-Route Back to Homepage
+        return to_route('user.movies.index');
     }
 
     /**
@@ -46,7 +93,12 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $cinema = Cinema::where("id", $order->cinema_id)->firstOrFail();
+        $screening = Screening::where("id", $order->screening_id)->firstOrFail();
+        $movie = Movie::where("id", $order->movie_id)->firstOrFail();
+        
+        // Route to The Show Movie Page
+        return view('user.orders.show')->with('order', $order)->with('cinema', $cinema)->with('screening', $screening)->with('movie', $movie);
     }
 
     /**
@@ -70,6 +122,14 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        // User Authentication
+        $user = Auth::user();
+        $user->authorizeRoles('user');
+
+        // Deletes Order (Pretty Self Explanitory)
+        $order->delete();
+
+        // Re-Routes Back to Homepage
+        return to_route('user.movies.index');
     }
 }

@@ -38,6 +38,9 @@ Route::resource('/admin/movies', AdminMovieController::class)->middleware(['auth
 Route::resource('/admin/orders', AdminOrderController::class)->middleware(['auth'])->names('admin.orders');
 
 // User Controller
-// Route::resource('/user/movies', UserMovieController::class)->middleware(['auth'])->names('user.movies');
+Route::resource('/user/movies', UserMovieController::class)->middleware(['auth'])->names('user.movies');
+
+Route::resource('/user/orders', UserOrderController::class)->middleware(['auth'])->names('user.orders');
+
 
 Auth::routes();

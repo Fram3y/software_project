@@ -31,7 +31,19 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.movies.create') }}">Add Movie</a></li>
                             <li><a class="dropdown-item" href="{{ route('admin.orders.index') }}">My Orders</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                @auth
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                @endauth
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -81,7 +93,7 @@
                         <div>
                             <img src="{{ asset('storage/images/' . $movie->movie_image) }}" width="200" height="300"
                                 alt="movieImage">
-                            <p class="d-flex justify-content-center text-light">{{ $movie->title }}</p>
+                            <p class="d-flex justify-content-center text-light text-decoration-underline">{{ $movie->title }}</p>
                         </div>
                     </a>
                 @empty
@@ -99,56 +111,78 @@
     {{-- End of Advert --}}
 
     {{-- Special Offers --}}
-    <div class="container p-0 py-4">
-        <div class="bg-primary">
-            <h2 class="d-flex justify-content-center text-light py-4">Special Offers</h2>
+    <div class="bg-primary">
+        <h2 class="d-flex justify-content-center text-light py-4">Special Offers</h2>
+    </div>
+
+    <div class="container p-0 py-4 pb-5">
+        <div class="row grid gap-2 justify-content-center">
+
+            {{-- Card 1 --}}
+            <div class="col-lg p-0">
+                <div class="bg-light offer-width rounded border border-dark border-2">
+                    <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
+                        alt="special-offer-image" class="img-fluid rounded">
+                    <h4 class="ps-1 pt-3">Special Offer</h4>
+                    <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
+                        temporibus
+                        non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt
+                        debitis
+                        reprehenderit, quibusdam harum.
+                    </p>
+                </div>
+            </div>
+            {{-- End of Card 1 --}}
+
+            {{-- Card 2 --}}
+            <div class="col-lg p-0">
+                <div class="bg-light offer-width rounded border border-dark border-2">
+                    <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
+                        alt="special-offer-image" class="img-fluid rounded">
+                    <h4 class="ps-1 pt-3">Special Offer</h4>
+                    <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
+                        temporibus
+                        non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt
+                        debitis
+                        reprehenderit, quibusdam harum.
+                    </p>
+                </div>
+            </div>
+            {{-- End of Card 2 --}}
+
+            {{-- Card 3 --}}
+            <div class="col-lg p-0">
+                <div class="bg-light offer-width rounded border border-dark border-2">
+                    <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
+                        alt="special-offer-image" class="img-fluid rounded">
+                    <h4 class="ps-1 pt-3">Special Offer</h4>
+                    <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
+                        temporibus
+                        non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt
+                        debitis
+                        reprehenderit, quibusdam harum.
+                    </p>
+                </div>
+            </div>
+            {{-- End of Card 3 --}}
+
+            {{-- Card 4 --}}
+            <div class="col-lg p-0">
+                <div class="bg-light offer-width rounded border border-dark border-2">
+                    <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
+                        alt="special-offer-image" class="img-fluid rounded">
+                    <h4 class="ps-1 pt-3">Special Offer</h4>
+                    <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
+                        temporibus
+                        non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt
+                        debitis
+                        reprehenderit, quibusdam harum.
+                    </p>
+                </div>
+            </div>
+            {{-- End of Card 4 --}}
         </div>
 
-        <div class="d-flex justify-content-evenly">
-            <div class="bg-light offer-width">
-                <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
-                    alt="special-offer-image" width="300">
-                <h4 class="ps-1 pt-3">Special Offer</h4>
-                <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
-                    temporibus
-                    non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt debitis
-                    reprehenderit, quibusdam harum.
-                </p>
-            </div>
-
-            <div class="bg-light offer-width">
-                <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
-                    alt="special-offer-image" width="300">
-                <h4 class="ps-1 pt-3">Special Offer</h4>
-                <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
-                    temporibus
-                    non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt debitis
-                    reprehenderit, quibusdam harum.
-                </p>
-            </div>
-
-            <div class="bg-light offer-width">
-                <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
-                    alt="special-offer-image" width="300">
-                <h4 class="ps-1 pt-3">Special Offer</h4>
-                <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
-                    temporibus
-                    non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt debitis
-                    reprehenderit, quibusdam harum.
-                </p>
-            </div>
-
-            <div class="bg-light offer-width">
-                <img src="https://drogheda.arccinema.ie/articleimages/rsz_sweet_cinema_sunday_original_artwork.jpg"
-                    alt="special-offer-image" width="300">
-                <h4 class="ps-1 pt-3">Special Offer</h4>
-                <p class="ps-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea molestias voluptatibus
-                    temporibus
-                    non modi cupiditate omnis aperiam, ad provident nisi maxime hic, excepturi dolore ipsa incidunt debitis
-                    reprehenderit, quibusdam harum.
-                </p>
-            </div>
-        </div>
     </div>
     {{-- End of Special Offers --}}
 

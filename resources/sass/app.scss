@@ -1,13 +1,28 @@
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-@import 'variables';
+// Functions
+@import "/node_modules/bootstrap/scss/functions";
 
+// Variables
+@import '/node_modules/bootstrap/scss/variables';
+
+// Mixins
+@import "/node_modules/bootstrap/scss/mixins";
+
+$theme-colors: map-remove($theme-colors, "secondary", "primary" );
+
+// my custom colours
+$custom-colors: (
+    "secondary":rgb(102, 0, 0),
+    "primary": rgb(170, 49, 49),
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 .offer-width{
-    max-width: 300px
+    max-width: 300px;
 }
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import '/node_modules/bootstrap/scss/bootstrap.scss';

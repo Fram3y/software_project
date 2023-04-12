@@ -123,6 +123,57 @@
         <div class="text-danger">{{ $message }}</div>
     @enderror
     </div>
+
+    <div class="container mt-5">
+        <h3>Billing Information</h3>
+    </div>
+
+    <div class="container my-3">
+        <label class="form-label">Card Number</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+    </div>
+
+    <div class="container d-flex my-3">
+        <!-- Date -->
+        <div class="mb-4 me-4">
+            <label class="form-label">Expiry Date</label>
+            <input type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <!-- CCV -->
+        <div class="mb-4">
+            <label class="form-label">CCV</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <h3>Alternate Methods</h3>
+    </div>
+
+    <div class="container border border-1 rounded">
+        <div class="d-flex align-items-center justify-content-between py-3 ps-2">
+            <div class="d-flex align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+                <h5 class="m-0">PayPal</h5>
+            </div>
+            <i class="fa-brands fa-paypal fs-1 me-4"></i>
+        </div>
+    </div>
+
+    <div class="container border border-1 rounded mt-3 mb-4">
+        <div class="d-flex align-items-center justify-content-between py-3 ps-2">
+            <div class="d-flex align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+                <h5 class="m-0">Google Pay</h5>
+            </div>
+            <i class="fa-brands fa-google-wallet fs-1 me-4"></i>
+        </div>
+    </div>
     
     <div class="container my-4">
         <button type="submit" class="btn btn-secondary px-4">Create New Order</button>

@@ -26,7 +26,7 @@ class MovieController extends Controller
         // Definintion of Movies
         $movies = Movie::all();
 
-        $movies = Movie::paginate(5);
+        $movies = Movie::paginate(6);
 
         // Route to home page
         return view('admin.movies.index')->with('movies', $movies);
