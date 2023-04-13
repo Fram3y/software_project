@@ -68,14 +68,15 @@ class MovieController extends Controller
         $movie_image = $request->file('movie_image');
         $movie_image_wide = $request->file('movie_image_wide');
         $extension = $movie_image->getClientOriginalExtension();
+        $extension_wide = $movie_image_wide->getClientOriginalExtension();
 
         // Creating Unique File Name to Database
         $filename = date('Y-m-d-his') . '_' . $request->input('title') . '.' . $extension;
-        $filename_wide = date('Y-m-d-his') . '_' . $request->input('title') . '.' . $extension;
+        $filename_wide = date('Y-m-d-his') . '_' . $request->input('title') . '.' . $extension_wide;
 
         // Pushing File With New Name to Images Folder
         $path = $movie_image->storeAs('public/images', $filename);
-        $path = $movie_image_wide->storeAs('public/images', $filename_wide);
+        $path_wide = $movie_image_wide->storeAs('public/images_wide', $filename_wide);
 
         // Create Movie (Had a werid error with schema)
         $movie = new Movie;
