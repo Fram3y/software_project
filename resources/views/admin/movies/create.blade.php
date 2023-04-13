@@ -166,8 +166,10 @@
 
         {{-- Movie Image --}}
         <div class="container my-4">
+            <div>
+                <label class="form-label">Movie Image :</label>
+            </div>
             <input 
-            class="mt-2" 
             name="movie_image" 
             type="file" 
             >
@@ -175,6 +177,22 @@
             
         {{-- Movie Image Error --}}
         @error('movie_image')
+            <div class="text-red-600 text-sm">{{ $message }}</div>
+        @enderror
+
+        {{-- Movie Image Wide --}}
+        <div class="container my-4">
+            <div>
+                <label class="form-label">Movie Advert :</label>
+            </div>
+            <input 
+            name="movie_image_wide" 
+            type="file" 
+            >
+        </div>
+            
+        {{-- Movie Image Wide Error --}}
+        @error('movie_image_wide')
             <div class="text-red-600 text-sm">{{ $message }}</div>
         @enderror
 

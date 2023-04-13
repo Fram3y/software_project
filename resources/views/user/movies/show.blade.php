@@ -62,7 +62,7 @@
 
     {{-- Wide Movie Advert --}}
     <div>
-        <img src="{{ asset('storage/images/' . $movie->movie_image_wide) }}"
+        <img src="{{ asset('storage/images_wide/' . $movie->movie_image_wide) }}"
             alt="movie_advert_wide" class="w-100" height="350">
     </div>
     {{-- End of Wide Movie Advert --}}

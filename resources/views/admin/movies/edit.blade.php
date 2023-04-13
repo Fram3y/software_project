@@ -186,11 +186,27 @@
             <div class="text-red-600 text-sm">{{ $message }}</div>
         @enderror
 
+        {{-- Movie Image Wide --}}
+        <div class="container my-4">
+            <div>
+                <label class="form-label">Movie Advert :</label>
+            </div>
+            <input 
+            name="movie_image_wide" 
+            type="file" 
+            >
+        </div>
+            
+        {{-- Movie Image Wide Error --}}
+        @error('movie_image_wide')
+            <div class="text-red-600 text-sm">{{ $message }}</div>
+        @enderror
+
         <div class="container my-4">
             <button type="submit" class="btn btn-secondary px-4">Update Movie</button>
         </div>
     </form>
-    {{-- End of Create Form --}}
+    {{-- End of Update Form --}}
 
     {{-- Footer --}}
     <div class="bg-secondary">
