@@ -33,7 +33,19 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('admin.movies.create') }}">Add Movie</a></li>
                             <li><a class="dropdown-item" href="{{ route('admin.orders.index') }}">My Orders</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                @auth
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                @endauth
+                            </li>
                         </ul>
                     </li>
                 </ul>

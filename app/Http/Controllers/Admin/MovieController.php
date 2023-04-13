@@ -118,6 +118,7 @@ class MovieController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'movie_image' => 'required',
+            'movie_image_wide' => 'required',
             'synopsis' => 'required|max:255',
             'director' => 'required|max:255',
             'starring' => 'required|max:255',
@@ -131,6 +132,7 @@ class MovieController extends Controller
 
         // Creating Variable For Movie Image And Extension
         $movie_image = $request->file('movie_image');
+        $movie_image_wide = $request->file('movie_image_wide');
         $extension = $movie_image->getClientOriginalExtension();
 
         // Creating Unique File Name to Database
@@ -138,6 +140,7 @@ class MovieController extends Controller
 
         // Pushing File With New Name to Images Folder
         $path = $movie_image->storeAs('public/images', $filename);
+        $path = $movie_image_wide->storeAs('public/images', $filename);
 
         // Update Movie Function (Ran Into Schema Error)
         $movie->title = $request->title;
@@ -146,6 +149,7 @@ class MovieController extends Controller
         $movie->starring = $request->starring;
         $movie->release_date = $request->release_date;
         $movie->movie_image = $filename;
+        $movie->movie_image_wide = $filename;
         $movie->genre_id = $request->genre_id;
         $movie->save();
 

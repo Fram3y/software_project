@@ -62,7 +62,7 @@
 
     {{-- Wide Movie Advert --}}
     <div>
-        <img src="https://www.pixel4k.com/wp-content/uploads/2019/03/assassins-creed-3-remastered-4k_1553074463.jpg"
+        <img src="{{ asset('storage/images/' . $movie->movie_image_wide) }}"
             alt="movie_advert_wide" class="w-100" height="350">
     </div>
     {{-- End of Wide Movie Advert --}}
