@@ -2,6 +2,9 @@
 
 @section('content')
 
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/8c4bde81e2.js" crossorigin="anonymous"></script>
+
 {{-- Nav Bar --}}
 <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
@@ -158,7 +161,7 @@
         </div>
     </div>
 
-
+    {{-- Alternate Pay Methods --}}
     <div class="container mt-5">
         <h3>Alternate Methods</h3>
     </div>
@@ -186,6 +189,135 @@
             <i class="fa-brands fa-google-wallet fs-1 me-4"></i>
         </div>
     </div>
+    {{-- End of Alternate Pay Methods --}}
+
+    <div class="container mt-5">
+        <h3>Choose Your Seats</h3>
+    </div>
+
+    {{-- Seat Legend --}}
+    <div class="container bg-secondary text-light d-flex justify-content-evenly py-4">
+        <div class="text-center">
+            <h1 class="m-0"><i class="fa-solid fa-couch text-warning"></i></h1>
+            <h5 class="m-0 pt-1">Selected</h5>
+        </div>
+        
+        <div class="text-center">
+            <h1 class="m-0"><i class="fa-solid fa-couch text-primary"></i></h1>
+            <h5 class="m-0 pt-1">Unavailable</h5>
+        </div>
+
+        <div class="text-center">
+            <h1 class="m-0"><i class="fa-solid fa-couch text-access"></i></h1>
+            <h5 class="m-0 pt-1">Accessibility Seating</h5>
+        </div>
+    </div>
+    {{-- End of Seat Legend --}}
+
+    {{-- Seat Selection --}}
+    <div class="container">
+        {{-- Row F --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>F</h2>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+        </div>
+        {{-- End of Row F --}}
+
+        {{-- Row E --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>E</h2>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+        </div>
+        {{-- End of Row E --}}
+
+        {{-- Row D --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>D</h2>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+        </div>
+        {{-- End of Row D --}}
+
+        {{-- Row C --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>C</h2>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+        </div>
+        {{-- End of Row C --}}
+
+        {{-- Row B --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>B</h2>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+            <h1><i class="fa-solid fa-couch"></i></h1>
+        </div>
+        {{-- End of Row B --}}
+
+        {{-- Number Row --}}
+        <div class="d-flex justify-content-evenly text-dark mx-5 mt-4">
+            <h2>A</h2>
+
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>1</h3>
+            </div>
+            
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>2</h3>
+            </div>
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>3</h3>
+            </div>
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>4</h3>
+            </div>
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>5</h3>
+            </div>
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>6</h3>
+            </div>
+            <div class="text-center">
+                <h1><i class="fa-solid fa-couch"></i></h1>
+                <h3>7</h3>
+            </div>
+        </div>
+        {{-- End of Number Row --}}
+    </div>
+    {{-- End of Seat Selection --}}
     
     <div class="container my-4">
         <button type="submit" class="btn btn-secondary px-4">Create New Order</button>

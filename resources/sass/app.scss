@@ -16,6 +16,7 @@ $theme-colors: map-remove($theme-colors, "secondary", "primary" );
 $custom-colors: (
     "secondary":rgb(102, 0, 0),
     "primary": rgb(170, 49, 49),
+    "access": rgb(0, 150, 255),
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
