@@ -34,7 +34,7 @@ class HomeController extends Controller
         }
         else if ($user->hasRole('user')){
             $home = 'user.movies.index';
-        }
+        } 
         return redirect()->route($home);
     }
 }

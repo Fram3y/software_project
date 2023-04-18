@@ -67,9 +67,6 @@
                 <h3 class="text-light py-2">Screen {{ $screening->screen_id }}</h3>
                 <h3 class="text-light py-2 pb-3 m-0">Tickets : {{ $order->tickets }}</h3>
             </div>
-            <div class="text-center">
-                <img src="https://cdn.britannica.com/17/155017-050-9AC96FC8/Example-QR-code.jpg" width="600px">
-            </div>
         </div>
 
         <div class="container">
